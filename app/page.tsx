@@ -68,7 +68,9 @@ export default function Home() {
     <div style={{ padding: 20 }}>
       <h2>All Users:</h2>
 
-      {users?.map((u) => (
+      {users
+  ?.filter((u) => u._id !== currentUser?._id)
+  .map((u) => (
         <div
           key={u._id}
           onClick={() => handleUserClick(u)}
